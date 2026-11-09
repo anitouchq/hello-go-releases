@@ -56,3 +56,32 @@ go run .
 - [Опубликованные релизы](https://github.com/anitouchq/hello-go-releases/releases)
 
 [Главный каталог CI/CD проектов](https://github.com/anitouchq/CI-CD-Pipelines)
+
+## Скриншоты
+
+Добавьте изображения в каталог `screenshots/`:
+
+- `screenshots/application.png` — запуск приложения;
+- `screenshots/github-actions-release.png` — успешная матричная сборка;
+- `screenshots/github-release.png` — опубликованный GitHub Release с пятью файлами.
+
+![Пример работы приложения](screenshots/application.png)
+![Сборка GitHub Actions](screenshots/github-actions-release.png)
+![Опубликованный GitHub Release](screenshots/github-release.png)
+
+## Как создать Release-сборку
+
+Сначала убедитесь, что нужные изменения уже находятся в `main`. Затем создайте новый тег версии и отправьте его на GitHub:
+
+```bash
+git checkout main
+git pull origin main
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+Тег должен соответствовать шаблону `v*`, например `v1.0.0`. Это запускает workflow: сначала CI-проверки, затем сборка пяти платформ, загрузка артефактов и публикация GitHub Release.
+
+Для следующего релиза используйте новый номер, например `v1.0.1`. Уже опубликованный тег повторно не используйте.
+
+Проверить процесс: [GitHub Actions](https://github.com/anitouchq/hello-go-releases/actions). Скачать бинарники: [GitHub Releases](https://github.com/anitouchq/hello-go-releases/releases).
