@@ -1,12 +1,14 @@
-# 🐹 hello-go-releases — Multi-platform binaries → GitHub Releases
+# hello-go-releases
 
-Учебный CI/CD-проект для Go. На каждом push в `main` и pull request workflow выполняет проверки кода. При push тега вида `v1.0.0` приложение компилируется для пяти платформ, после чего бинарники прикладываются к GitHub Release.
+[![CI](https://github.com/anitouchq/hello-go-releases/actions/workflows/ci.yml/badge.svg)](https://github.com/anitouchq/hello-go-releases/actions)
+
+Учебный CI/CD-проект на Go. При push в `main` и pull request выполняются проверки кода. При отправке тега вида `v1.0.0` приложение собирается для пяти платформ, а готовые бинарники прикладываются к GitHub Release.
 
 ## CI checks
 
 - `gofmt` — форматирование;
 - `go vet ./...` — статический анализ;
-- `go test ./... -v` — тесты;
+- `go test ./... -v` — модульные тесты;
 - `go build` — контрольная сборка.
 
 ## Release matrix
@@ -19,18 +21,16 @@
 | macOS | arm64 | `hello-go-darwin-arm64` |
 | Windows | amd64 | `hello-go-windows-amd64.exe` |
 
-Для сборки используется кросс-компиляция Go через `GOOS` и `GOARCH`. CGO отключён, чтобы получить самостоятельные бинарные файлы без системных библиотек C.
+Для сборки используется кросс-компиляция Go через `GOOS` и `GOARCH`. CGO отключён, поэтому бинарники не требуют системных библиотек C.
 
 ## Как создать Release
-
-Создайте тег и отправьте его в GitHub:
 
 ```bash
 git tag v1.0.0
 git push origin v1.0.0
 ```
 
-GitHub Actions сначала выполняет CI. Если проверки прошли успешно, matrix job собирает пять бинарников, а отдельный job публикует их в GitHub Releases.
+После успешных CI-проверок matrix job собирает пять файлов, а отдельный job публикует их в [GitHub Releases](https://github.com/anitouchq/hello-go-releases/releases).
 
 ## Локальный запуск
 
@@ -39,8 +39,20 @@ go test ./... -v
 go run .
 ```
 
-## Permissions
+## Структура проекта
 
-Для обычных CI-проверок используется `contents: read`. Job публикации получает `contents: write` для создания Release с помощью встроенного `GITHUB_TOKEN`.
+| Файл или каталог | Назначение |
+|---|---|
+| `.github/workflows/ci.yml` | CI, матричная сборка и публикация Release |
+| `greeting/greeting.go` | Функции приветствия и вспомогательная логика |
+| `greeting/greeting_test.go` | Тесты пакета `greeting` |
+| `main.go` | Точка входа CLI-приложения |
+| `go.mod` | Имя Go-модуля и версия Go |
+| `.gitignore` | Локальные файлы, исключаемые из Git |
+
+## Результаты
+
+- [GitHub Actions](https://github.com/anitouchq/hello-go-releases/actions)
+- [Опубликованные релизы](https://github.com/anitouchq/hello-go-releases/releases)
 
 [Главный каталог CI/CD проектов](https://github.com/anitouchq/CI-CD-Pipelines)
