@@ -55,4 +55,19 @@ go run .
 - [GitHub Actions](https://github.com/anitouchq/hello-go-releases/actions)
 - [Опубликованные релизы](https://github.com/anitouchq/hello-go-releases/releases)
 
+
+## Скриншоты
+
+### Пример запуска CLI-приложения
+
+![Пример запуска CLI-приложения](screenshots/application.png)
+
+### Успешная матричная сборка
+
+![Успешная матричная сборка](screenshots/github-actions-release.png)
+
+### GitHub Release с пятью бинарными файлами
+
+![GitHub Release с пятью бинарными файлами](screenshots/github-release.png)
+
 [Главный каталог CI/CD проектов](https://github.com/anitouchq/CI-CD-Pipelines)
