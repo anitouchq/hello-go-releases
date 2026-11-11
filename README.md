@@ -39,6 +39,11 @@ go test ./... -v
 go run .
 ```
 
+go run .
+```
+
+![Запуск CLI-приложения](screenshots/application.png)
+
 ## Структура проекта
 
 | Файл или каталог | Назначение |
@@ -65,9 +70,5 @@ go run .
 ### Release v1.0.0
 
 ![GitHub Release с бинарными файлами](screenshots/github-release.png)
-
-### Запуск приложения
-
-![Запуск CLI-приложения](screenshots/application.png)
 
 [Главный каталог CI/CD проектов](https://github.com/anitouchq/CI-CD-Pipelines)
