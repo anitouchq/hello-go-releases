@@ -58,16 +58,16 @@ go run .
 
 ## Скриншоты
 
-### Пример запуска CLI-приложения
+### Actions
 
-![Пример запуска CLI-приложения](screenshots/application.png)
+![GitHub Actions — успешная сборка](screenshots/github-actions-release.png)
 
-### Успешная матричная сборка
+### Release v1.0.0
 
-![Успешная матричная сборка](screenshots/github-actions-release.png)
+![GitHub Release с бинарными файлами](screenshots/github-release.png)
 
-### GitHub Release с пятью бинарными файлами
+### Запуск приложения
 
-![GitHub Release с пятью бинарными файлами](screenshots/github-release.png)
+![Запуск CLI-приложения](screenshots/application.png)
 
 [Главный каталог CI/CD проектов](https://github.com/anitouchq/CI-CD-Pipelines)
